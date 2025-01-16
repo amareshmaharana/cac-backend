@@ -1,0 +1,12 @@
+{
+  "name": "cac-backend",
+  "version": "1.0.0",
+  "description": "exploring backend with chai-aur-code on yt",
+  "license": "ISC",
+  "author": "Amaresh M.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
