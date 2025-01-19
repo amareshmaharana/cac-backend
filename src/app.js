@@ -16,4 +16,13 @@ app.use(express.urlencoded({ extended: true, limit: '30kb' })); // for receive d
 app.use(express.static('public')); // for store file/folders like images, pdf format in server as public asset etc.
 app.use(cookieParser()); // for cookie work in server like set, get, delete etc.
 
+
+
+// routes importing
+import userRouter from './routes/user.routes.js';
+
+// routes
+app.use('/users', userRouter); // routes:- /api/v1/users
+
+
 export default app;
