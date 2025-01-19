@@ -1,4 +1,4 @@
-import { multer } from 'multer';
+import multer from 'multer';
 
 const storage = multer.diskStorage({ // storage as middleware
   destination: function (req, file, cb) {
@@ -9,7 +9,9 @@ const storage = multer.diskStorage({ // storage as middleware
   },
 });
 
-export const upload = multer({ storage });
+const upload = multer({ storage });
+
+export default upload;
 
 
 // for file uploading to backend
