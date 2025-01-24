@@ -163,8 +163,8 @@ export const logoutUser = asyncHandler(async (req, res) => {
   await User.findByIdAndUpdate(
     req.user._id,
     {
-      $set: {
-        refreshToken: undefined,
+      $unset: {
+        refreshToken: 1, //this removes the field from document
       },
     },
     {
@@ -436,7 +436,7 @@ export const getUserChannelProfile = asyncHandler(async (req, res) => {
 
 // < ----------------- get-watch-history ------------------ >
 export const getWatchHistory = asyncHandler(async (req, res) => {
-  const user = await User.aggregate(
+  const user = await User.aggregate([
     {
       $match: {
         _id: new mongoose.Types.ObjectId(req.user?._id),
@@ -476,8 +476,7 @@ export const getWatchHistory = asyncHandler(async (req, res) => {
         ],
       },
     },
-    
-  )
+  ])
 
   return res
     .status(200)
